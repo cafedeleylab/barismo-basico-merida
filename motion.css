@@ -1,0 +1,67 @@
+/* Motion layer for the two November pages. Core layout remains in the course template. */
+html{scroll-padding-top:78px}
+body{--motion-gold:#d9b777}
+.hero-media img{transform:scale(1.055);animation:hero-settle 1.8s cubic-bezier(.19,1,.22,1) both}
+.hero-content .eyebrow,.hero h1,.hero-sub,.hero-cta-row,.hero-cta-note{animation:hero-rise .85s cubic-bezier(.2,.7,.2,1) both}
+.hero h1{animation-delay:.12s}.hero-sub{animation-delay:.22s}.hero-cta-row{animation-delay:.32s}.hero-cta-note{animation-delay:.42s}
+@keyframes hero-settle{to{transform:scale(1)}}
+@keyframes hero-rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* Alternating entrance directions are assigned by motion.js. Content stays visible without JS. */
+.motion-ready [data-motion]{opacity:0;transform:translate3d(var(--enter-x,0),26px,0);filter:blur(5px);transition:opacity .8s cubic-bezier(.2,.65,.2,1),transform .8s cubic-bezier(.2,.65,.2,1),filter .8s ease;transition-delay:var(--enter-delay,0ms)}
+.motion-ready [data-motion="left"]{--enter-x:-58px}
+.motion-ready [data-motion="right"]{--enter-x:58px}
+.motion-ready [data-motion].is-visible{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+.day-card img,.cert-media img,.inscription-banner img,.instructor-photo img{transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.day-card:hover img,.cert-panel:hover img,.inscription-banner:hover img,.instructor-card:hover img{transform:scale(1.045)}
+.btn--brass{background:linear-gradient(110deg,#c9a66b 0%,#e6ca91 45%,#c9a66b 100%);background-size:220% 100%;transition:background-position .6s ease,transform .18s ease,box-shadow .18s ease}
+.btn--brass:hover{background-position:100% 0}
+.nav .btn--brass{padding:10px 18px;font-size:.82rem;white-space:nowrap}
+
+.motion-journey{background:radial-gradient(circle at 75% 15%,rgba(201,166,107,.16),transparent 30%),linear-gradient(150deg,#10252b,#05090b 68%);overflow:clip;padding-bottom:0}
+.journey-intro{position:relative;z-index:2;padding-bottom:25px}
+.journey-intro h2{font-size:clamp(2.5rem,6vw,5.3rem);max-width:12ch;line-height:1.02;margin:18px 0;color:var(--cream)}
+.journey-intro h2 em{color:var(--motion-gold);font-weight:500}
+.journey-intro>p:last-child{color:var(--sand);font-size:1rem;max-width:45ch}
+.journey-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,7vw,110px);align-items:start}
+.journey-steps{position:relative}
+.journey-step{min-height:67svh;display:flex;flex-direction:column;justify-content:center;border-top:1px solid rgba(221,207,197,.17);padding:45px 0 70px;opacity:.6;transition:opacity .4s ease}
+.journey-step.is-active{opacity:1}
+.journey-num{font:600 .68rem var(--font-mono);letter-spacing:.22em;color:var(--brass);margin-bottom:24px}
+.journey-step h3{font-size:clamp(2.05rem,4vw,3.65rem);line-height:1.04;color:var(--cream);max-width:11ch}
+.journey-step p{color:var(--sand);font-size:clamp(.98rem,1.25vw,1.1rem);max-width:31ch;margin-top:20px;line-height:1.65}
+.journey-visual{position:sticky;top:12vh;height:74svh;min-height:440px;margin:30px 0 80px;align-self:start}
+.journey-photo-stack{position:relative;height:calc(100% - 50px);overflow:hidden;border-radius:18px;background:#14282e;box-shadow:0 30px 80px -35px #000}
+.journey-photo-stack:after{content:"";position:absolute;inset:0;pointer-events:none;border:1px solid rgba(243,236,226,.13);border-radius:18px;box-shadow:inset 0 0 120px rgba(5,9,11,.13)}
+.journey-photo-stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.09) translateY(3%);transition:opacity .75s ease,transform 1.3s cubic-bezier(.2,.7,.2,1)}
+.journey-photo-stack img:first-child{opacity:1;transform:scale(1) translateY(0)}
+.motion-ready .journey-photo-stack img:first-child:not(.is-active){opacity:0}
+.journey-photo-stack img.is-active{opacity:1;transform:scale(1) translateY(0)}
+.journey-counter{display:flex;align-items:center;gap:18px;font:600 .7rem var(--font-mono);letter-spacing:.15em;color:var(--brass);padding-top:18px}
+.journey-track{height:1px;flex:1;background:rgba(221,207,197,.25)}
+.journey-track span{display:block;width:33.333%;height:100%;background:var(--brass);transition:width .5s ease}
+.journey-mobile-image{display:none}
+.motion-ribbon{overflow:hidden;background:linear-gradient(105deg,#d2b174,#ebd29a,#c9a66b);color:#112126;border-block:1px solid rgba(0,0,0,.12);white-space:nowrap}
+.motion-ribbon-track{display:flex;width:max-content;gap:2rem;transform:translate3d(var(--ribbon-x,0px),0,0);will-change:transform;padding:18px 0;font:600 clamp(.72rem,1.2vw,.95rem) var(--font-mono);text-transform:uppercase;letter-spacing:.16em}
+.motion-ribbon-track span{padding-left:2rem}
+section[data-tone="light"]{background-image:radial-gradient(circle at 95% 0,rgba(201,166,107,.07),transparent 36%)}
+
+@media(max-width:700px){
+  html{scroll-padding-top:70px}
+  .nav .btn--brass{padding:10px 13px;font-size:.76rem}
+  .motion-ready [data-motion="left"]{--enter-x:-24px}.motion-ready [data-motion="right"]{--enter-x:24px}
+  .journey-intro{padding-bottom:38px}.journey-intro h2{font-size:clamp(2.5rem,12vw,4rem)}
+  .journey-grid{display:block}.journey-visual{display:none}
+  .journey-step{min-height:0;opacity:1;padding:36px 0 55px}
+  .journey-step h3{font-size:clamp(2.2rem,10vw,3rem)}
+  .journey-step p{max-width:40ch;margin-bottom:24px}
+  .journey-mobile-image{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px}
+  .motion-ribbon-track{padding:14px 0}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-media img,.hero-content .eyebrow,.hero h1,.hero-sub,.hero-cta-row,.hero-cta-note{animation:none;transform:none}
+  .motion-ready [data-motion]{opacity:1;transform:none;filter:none;transition:none}
+  .journey-photo-stack img,.journey-step,.journey-track span,.btn--brass,.day-card img,.cert-media img,.inscription-banner img,.instructor-photo img{transition:none}
+  .motion-ribbon-track{transform:none}
+}

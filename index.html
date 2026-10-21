@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Barismo Básico en Mérida | 14 y 15 de noviembre — Café de Ley</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Aprende a calibrar, extraer y servir espresso en dos días de práctica en Mérida. 14 y 15 de noviembre de 2026, de 9:00AM a 2:00PM.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Barismo Básico en Mérida | 14 y 15 de noviembre — Café de Ley">
+<meta property="og:description" content="Aprende a calibrar, extraer y servir espresso en dos días de práctica en Mérida. 14 y 15 de noviembre de 2026, de 9:00AM a 2:00PM.">
+<meta property="og:image" content="og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   Café de Ley — Sistema de landings de cursos (v2)
+   Fuente: fusión de las landings Sensory Skills (Playa/Mérida),
+   Métodos Filtrados Básico/Intermedio y Barismo Básico (sep 2026).
+   NO editar por curso. Si un curso necesita algo nuevo, se agrega aquí
+   como módulo reutilizable y se documenta en docs/modulos.md.
+   ===================================================================== */
+
+/* ============ Paleta (constantes — los componentes usan los tokens de tono) ============ */
+:root{
+  --ink-deep:#05090b;
+  --ink:#0e1b20;
+  --ink-raised:#152a30;
+  --ink-line: rgba(221,207,197,0.14);
+  --taupe:#584e3e;
+  --brass:#c9a66b;
+  --brass-bright:#dab97e;
+  --brass-dim: rgba(201,166,107,0.35);
+  --brass-deep:#8a6423;
+  --sand:#ddcfc5;
+  --cream:#f3ece2;
+  --cream-dim: rgba(243,236,226,0.62);
+
+  --paper:#f5efe3;
+  --paper-raised:#ece1cd;
+  --paper-line: rgba(21,36,42,0.14);
+  --paper-ink:#15242a;
+  --paper-ink-dim: rgba(21,36,42,0.62);
+
+  --gold-1:#f4e4bb;
+  --gold-2:#ecd39c;
+  --gold-ink:#241b0d;
+  --gold-ink-dim:#4a3b22;
+
+  --shadow: 0 30px 80px -40px rgba(0,0,0,0.7);
+  --shadow-soft: 0 22px 46px -30px rgba(21,36,42,0.35);
+  --radius: 18px;
+
+  --font-display:'Fraunces', Georgia, serif;
+  --font-body:'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-mono:'IBM Plex Mono', ui-monospace, monospace;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  background: var(--ink-deep);
+  color: var(--cream);
+  font-family: var(--font-body);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x: hidden;
+}
+
+::selection{ background: var(--brass-dim); color:var(--ink-deep); }
+
+a{ color:inherit; }
+img{ display:block; max-width:100%; }
+
+.wrap{
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 56px);
+}
+
+h1,h2,h3{
+  font-family: var(--font-display);
+  font-weight:700;
+  text-wrap: balance;
+  margin:0;
+  color: var(--text);
+}
+
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size:0.7rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color: var(--eyebrow-color);
+}
+
+p{ margin:0; }
+
+/* Marcador visible de dato faltante — build.py lo genera para "PENDIENTE: ..." */
+.pendiente{
+  background: repeating-linear-gradient(135deg, #ffe08a 0 8px, #ffd35c 8px 16px);
+  color:#3a2a00;
+  font-family: var(--font-mono);
+  font-size:0.8em;
+  padding: 2px 8px;
+  border-radius:6px;
+  font-weight:600;
+}
+
+/* ---------- Botones ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-family: var(--font-body);
+  font-weight:700;
+  font-size:0.95rem;
+  padding: 15px 28px;
+  border-radius: 999px;
+  text-decoration:none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  cursor:pointer;
+  border: 1px solid transparent;
+}
+.btn:focus-visible{ outline: 2px solid var(--brass); outline-offset:3px; }
+
+.btn--brass{
+  background: linear-gradient(180deg, var(--brass-bright), var(--brass));
+  color: var(--ink-deep);
+  box-shadow: 0 10px 24px -12px rgba(21,15,4,0.45);
+}
+.btn--brass:hover{ transform: translateY(-2px); box-shadow: 0 14px 28px -12px rgba(21,15,4,0.55); }
+
+.btn--ghost{
+  background: rgba(5,9,11,0.35);
+  border-color: var(--ink-line);
+  color: var(--cream);
+  backdrop-filter: blur(6px);
+}
+.btn--ghost:hover{ border-color: var(--brass-dim); background: rgba(201,166,107,0.1); }
+
+/* ---------- Header ---------- */
+header{
+  position: sticky;
+  top:0;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+  background: rgba(5,9,11,0.72);
+  border-bottom: 1px solid var(--ink-line);
+}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 10px clamp(20px, 5vw, 56px);
+  max-width:1080px;
+  margin:0 auto;
+}
+.wordmark{ display:flex; align-items:center; text-decoration:none; }
+.wordmark img{ height:46px; width:auto; }
+.nav .btn--ghost{ padding:10px 18px; font-size:0.82rem; border-color: var(--ink-line); background:transparent; backdrop-filter:none; }
+.nav .btn--ghost:hover{ background: rgba(201,166,107,0.06); }
+
+/* ---------- Hero (siempre oscuro) ---------- */
+.hero{
+  --surface:var(--ink-deep); --text:var(--cream); --text-dim:var(--cream-dim); --hairline:var(--ink-line); --eyebrow-color:var(--brass);
+  position:relative;
+  min-height: 88svh;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  padding:0;
+}
+.hero-media{ position:absolute; inset:0; z-index:0; }
+.hero-media img{
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position: var(--hero-pos, 50% 30%);
+}
+.hero-media::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(0deg, rgba(5,9,11,0.97) 0%, rgba(5,9,11,0.85) 32%, rgba(5,9,11,0.4) 62%, rgba(5,9,11,0.62) 100%),
+    linear-gradient(100deg, rgba(5,9,11,0.72) 0%, rgba(5,9,11,0.1) 55%);
+}
+.hero-content{
+  position:relative;
+  z-index:1;
+  width:100%;
+  padding: clamp(120px,26vh,220px) 0 clamp(36px,5vw,56px);
+}
+.hero h1{
+  font-size: clamp(2.5rem, 7vw, 4.4rem);
+  line-height:0.98;
+  margin-top:14px;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.6);
+}
+.hero .eyebrow{ text-shadow: 0 2px 10px rgba(0,0,0,0.7); }
+.hero h1 em{ font-style:normal; color: var(--brass); }
+.hero-sub{
+  margin-top:20px;
+  max-width: 58ch;
+  color: rgba(243,236,226,0.92);
+  font-size: clamp(0.98rem, 1.4vw, 1.05rem);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.65);
+}
+.hero-sub strong{ color: var(--cream); }
+.hero-cta-row{
+  margin-top: 30px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  align-items:center;
+}
+.hero-cta-note{
+  font-family: var(--font-mono);
+  font-weight:600;
+  font-size:0.8rem;
+  color: var(--brass);
+  letter-spacing:0.04em;
+  margin-top:16px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+/* ============ Sistema de tonos por sección ============
+   Cada <section> lleva data-tone="light" (papel) o data-tone="dark" (tinta).
+   Ritmo por defecto: intro/temario/inversión/inscripción = light;
+   frase/por-qué/capacitadores/ubicación/cierre = dark. */
+section{ position:relative; padding: clamp(56px, 9vw, 100px) 0; background: var(--surface); color: var(--text-dim); }
+section[data-tone="dark"]{
+  --surface: var(--ink-deep);
+  --surface-raised: var(--ink-raised);
+  --text: var(--cream);
+  --text-dim: var(--cream-dim);
+  --hairline: var(--ink-line);
+  --eyebrow-color: var(--brass);
+  --lede-color: var(--sand);
+  --lede-strong: var(--brass);
+}
+section[data-tone="light"]{
+  --surface: var(--paper);
+  --surface-raised: var(--paper-raised);
+  --text: var(--paper-ink);
+  --text-dim: var(--paper-ink-dim);
+  --hairline: var(--paper-line);
+  --eyebrow-color: var(--brass-deep);
+  --lede-color: var(--paper-ink);
+  --lede-strong: var(--brass-deep);
+}
+
+/* línea fina donde cambian de tono dos secciones contiguas */
+section[data-tone] + section[data-tone]{ border-top:1px solid var(--hairline); }
+.hero + section{ border-top:1px solid var(--ink-line); }
+
+.section-head{ max-width:60ch; margin-bottom: clamp(32px,5vw,52px); }
+.section-head h2{ font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-top:12px; }
+.section-head p{ margin-top:14px; color:var(--text-dim); font-size:1.05rem; }
+
+.lede{
+  font-family: var(--font-display);
+  font-weight:500;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  line-height:1.5;
+  max-width: 42ch;
+  color: var(--lede-color);
+}
+.lede strong{ color:var(--lede-strong); font-weight:600; }
+
+/* ---------- Intro copy (objetivo general, texto corrido) ---------- */
+.intro-copy{ max-width:70ch; display:flex; flex-direction:column; gap:16px; font-size:1.02rem; color:var(--text-dim); }
+.intro-copy strong{ color:var(--text); }
+
+/* ---------- Carrusel ---------- */
+.intro-eyebrow{ padding: 0 clamp(20px,5vw,56px); margin-bottom:16px; max-width:1080px; margin-left:auto; margin-right:auto; }
+.carousel{
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+  padding: 0 clamp(20px,5vw,56px) 6px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.carousel::-webkit-scrollbar{ display:none; }
+.carousel-item{
+  flex: 0 0 auto;
+  width: clamp(190px, 26vw, 280px);
+  aspect-ratio: 4/5;
+  object-fit:cover;
+  border-radius: var(--radius);
+  border:1px solid var(--hairline);
+  scroll-snap-align:start;
+  box-shadow: var(--shadow-soft);
+}
+.carousel-dots{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:9px;
+  margin-top:22px;
+}
+.carousel-dot{
+  width:7px; height:7px;
+  border-radius:999px;
+  border:none;
+  padding:0;
+  background: var(--text-dim);
+  opacity:0.35;
+  cursor:pointer;
+  transition: opacity 0.25s ease, transform 0.3s ease, background 0.25s ease;
+}
+.carousel-dot.is-active{
+  opacity:1;
+  background: var(--eyebrow-color);
+  transform: scale(1.7);
+}
+
+/* ---------- Franja de datos (specs) ---------- */
+.intro-specs{ margin-top: clamp(40px,6vw,64px); }
+.spec-strip{
+  display:grid;
+  grid-template-columns: repeat(var(--spec-cols, 3), minmax(0,1fr));
+  border-top:1px solid var(--hairline);
+  border-bottom:1px solid var(--hairline);
+}
+.spec{
+  padding: 18px clamp(10px,2vw,22px);
+  border-left:1px solid var(--hairline);
+}
+.spec:first-child{ border-left:none; padding-left:0; }
+.spec-label{
+  font-family: var(--font-mono);
+  font-size:0.62rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color: var(--text-dim);
+}
+.spec-note{ margin-top:4px; color:var(--text-dim); font-size:0.78rem; }
+.spec-value{
+  margin-top:6px;
+  font-family: var(--font-body);
+  font-weight:600;
+  font-size:0.9rem;
+  line-height:1.35;
+  color: var(--text);
+}
+.spec-rows{ margin-top:6px; display:flex; flex-direction:column; gap:5px; }
+.spec-rows p{ font-weight:600; font-size:0.86rem; color: var(--text); }
+.spec-rows b{
+  font-family: var(--font-mono);
+  font-weight:700;
+  font-size:0.8rem;
+  letter-spacing:0.06em;
+  color: var(--eyebrow-color);
+  margin-right:8px;
+}
+
+/* ---------- Temario formato "dias": tarjetas con foto ---------- */
+.days{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.day-card{
+  background: var(--surface-raised);
+  border:1px solid var(--hairline);
+  border-radius: var(--radius);
+  overflow:hidden;
+  box-shadow: var(--shadow-soft);
+}
+.day-media{ aspect-ratio: 16/10; overflow:hidden; }
+.day-media img{ width:100%; height:100%; object-fit:cover; }
+.day-body{ padding: clamp(22px,3vw,30px); }
+.day-index{
+  font-family: var(--font-mono);
+  font-size:0.7rem;
+  letter-spacing:0.18em;
+  color: var(--eyebrow-color);
+}
+.day-card h3{ font-size:1.4rem; margin-top:8px; }
+.day-list{
+  list-style:none;
+  margin: 18px 0 0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
+.day-list li{
+  position:relative;
+  padding-left:20px;
+  font-size:0.93rem;
+  color: var(--text-dim);
+}
+.day-list li::before{
+  content:"";
+  position:absolute; left:0; top:0.55em;
+  width:7px; height:1px;
+  background: var(--eyebrow-color);
+}
+.day-list li strong{ color:var(--text); font-weight:600; }
+.temario-resultado{ margin-top: clamp(32px,5vw,48px); max-width:70ch !important; }
+
+/* ---------- Temario formato "bloques": foto panorámica + 2 columnas de listas ---------- */
+.curriculum-media{
+  aspect-ratio: 21/9;
+  border-radius: var(--radius);
+  overflow:hidden;
+  border:1px solid var(--hairline);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: clamp(32px,5vw,48px);
+}
+.curriculum-media img{ width:100%; height:100%; object-fit:cover; }
+.curriculum-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px,5vw,56px);
+}
+.curriculum-block h3{
+  font-family: var(--font-mono);
+  font-size:0.72rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color: var(--eyebrow-color);
+  font-weight:600;
+}
+
+/* ---------- Certificación (panel foto + texto) ---------- */
+.cert-panel{
+  display:grid;
+  grid-template-columns: 1fr 1.1fr;
+  background: var(--surface-raised);
+  border:1px solid var(--hairline);
+  border-radius: var(--radius);
+  overflow:hidden;
+  box-shadow: var(--shadow-soft);
+}
+.cert-media{ position:relative; min-height:280px; }
+.cert-media img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+.cert-copy{ padding: clamp(28px,4vw,44px); }
+.cert-copy h2{ font-size:1.7rem; }
+.cert-copy p{ color:var(--text-dim); margin-top:16px; }
+.cert-copy strong{ color:var(--text); }
+.cert-tags{ display:flex; gap:10px; flex-wrap:wrap; margin-top:20px; }
+.cert-tag{
+  font-family: var(--font-mono);
+  font-size:0.66rem;
+  letter-spacing:0.08em;
+  padding:7px 12px;
+  border-radius:999px;
+  border:1px solid var(--hairline);
+  color: var(--text-dim);
+}
+
+/* ---------- Frase (banner cinematográfico) ---------- */
+.quote-banner{
+  position:relative;
+  border-radius: var(--radius);
+  overflow:hidden;
+  min-height: 260px;
+  display:flex;
+  align-items:center;
+  border:1px solid var(--hairline);
+}
+.quote-banner img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.quote-banner::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(100deg, rgba(5,9,11,0.92) 15%, rgba(5,9,11,0.55) 70%);
+}
+.quote-banner blockquote{
+  position:relative; z-index:1;
+  margin:0;
+  padding: clamp(28px,5vw,48px);
+  max-width: 46ch;
+  font-family: var(--font-display);
+  font-style:italic;
+  font-weight:500;
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  color: var(--sand);
+  line-height:1.5;
+}
+.quote-banner cite{
+  display:block;
+  margin-top:14px;
+  font-style:normal;
+  font-family: var(--font-mono);
+  font-size:0.7rem;
+  letter-spacing:0.05em;
+  color: var(--brass);
+}
+/* variante "papel": la frase va en una tarjeta clara sobre la foto, sin velo oscuro
+   (útil cuando la foto es un gráfico/diagrama que debe verse completo) */
+.quote-banner--papel::after{ content:none; }
+.quote-banner--papel blockquote{
+  margin: clamp(16px,3vw,28px);
+  padding: clamp(18px,3vw,28px);
+  color: var(--paper-ink);
+  background: rgba(245,239,227,0.88);
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  box-shadow: var(--shadow-soft);
+}
+.quote-banner--papel cite{ color: var(--brass-deep); }
+
+/* ---------- Por qué elegir Café de Ley ---------- */
+.why-copy{ display:flex; flex-direction:column; gap:20px; }
+
+/* ---------- Capacitadores ---------- */
+.instructors{ display:flex; flex-direction:column; }
+.instructor-row{
+  display:grid;
+  grid-template-columns: 132px 1fr;
+  gap: clamp(24px,4vw,40px);
+  align-items:start;
+  padding: clamp(28px,4vw,40px) 0;
+  border-top:1px solid var(--hairline);
+}
+.instructor-row:last-child{ border-bottom:1px solid var(--hairline); }
+.instructor-photo{
+  width:132px; height:132px;
+  border-radius: 14px;
+  overflow:hidden;
+  background: var(--cream);
+  box-shadow: var(--shadow-soft);
+}
+.instructor-photo img{ width:100%; height:100%; object-fit:cover; object-position: top center; }
+.instructor-card h3{ font-size:1.3rem; }
+.instructor-role{
+  margin-top:6px;
+  font-family: var(--font-mono);
+  font-size:0.68rem;
+  letter-spacing:0.05em;
+  color: var(--eyebrow-color);
+  line-height:1.7;
+}
+.instructor-card p.bio{ margin-top:14px; color:var(--text-dim); font-size:0.95rem; max-width:62ch; }
+
+/* ---------- Inversión (panel dorado — mismo en ambos tonos) ---------- */
+.price-panel{
+  position:relative;
+  display:grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(24px,4vw,48px);
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  border:1px solid rgba(74,59,34,0.18);
+  border-radius: var(--radius);
+  padding: clamp(28px,4vw,44px);
+  box-shadow: 0 26px 60px -34px rgba(21,15,4,0.4);
+}
+.price-main .eyebrow{ margin-bottom:8px; color: var(--brass-deep); }
+.price-figure{
+  margin-top:14px;
+  font-family: var(--font-display);
+  font-weight:700;
+  font-size: clamp(2.3rem, 5vw, 3.4rem);
+  color: var(--gold-ink);
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.price-figure small{ font-family: var(--font-mono); font-size:0.9rem; color:#5c4a2c; font-weight:500; }
+.price-discount{ margin-top:12px; color:var(--gold-ink-dim); font-size:0.98rem; }
+.price-discount strong{ color:#1f1608; }
+.price-note{ margin-top:14px; color:var(--gold-ink-dim); font-size:0.94rem; max-width:40ch; }
+.price-note strong{ color:#1f1608; }
+.price-list{
+  list-style:none;
+  margin:0; padding:0;
+  display:flex; flex-direction:column; gap:14px;
+  border-left:1px solid rgba(74,59,34,0.22);
+  padding-left: clamp(20px,3vw,32px);
+}
+.price-list li{ font-size:0.94rem; color:var(--gold-ink-dim); }
+.price-list li strong{ display:block; color:var(--gold-ink); font-family: var(--font-display); font-size:1.12rem; font-weight:600; margin-bottom:2px; }
+.price-badge{
+  position:absolute;
+  top:-14px; right:20px;
+  background: var(--brass-deep);
+  color: var(--gold-1);
+  font-family: var(--font-mono);
+  font-size:0.66rem;
+  line-height:1.4;
+  text-align:center;
+  padding:10px 14px;
+  border-radius:12px;
+  box-shadow: 0 10px 20px -10px rgba(21,15,4,0.5);
+  max-width:150px;
+}
+
+/* ---------- Inscripción (banner + 3 pasos) ---------- */
+.steps-banner{
+  position:relative;
+  border-radius: var(--radius);
+  overflow:hidden;
+  margin-bottom: 32px;
+  aspect-ratio: 21/9;
+}
+.steps-banner img{ width:100%; height:100%; object-fit:cover; }
+.steps-banner::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(0deg, rgba(5,9,11,0.82) 0%, rgba(5,9,11,0.66) 29%, rgba(5,9,11,0.36) 52.9%, rgba(5,9,11,0.14) 71%, rgba(5,9,11,0) 100%);
+  pointer-events:none;
+}
+.steps-banner-caption{
+  position:absolute; left:0; right:0; bottom:0;
+  padding: 18px 22px;
+  z-index:1;
+  font-family: var(--font-mono);
+  font-size:0.74rem;
+  letter-spacing:0.06em;
+  color: var(--sand);
+}
+.steps{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top:1px solid var(--hairline);
+  border-bottom:1px solid var(--hairline);
+}
+.step{
+  padding: 28px clamp(16px,3vw,28px);
+  border-left:1px solid var(--hairline);
+}
+.step:first-child{ border-left:none; padding-left:0; }
+.step-num{
+  font-family: var(--font-display);
+  font-weight:600;
+  font-size:1.3rem;
+  color: var(--eyebrow-color);
+}
+.step h3{ font-size:1.04rem; margin-top:10px; font-family: var(--font-body); font-weight:700; }
+.step p{ margin-top:10px; color:var(--text-dim); font-size:0.92rem; }
+
+/* ---------- Ubicación ---------- */
+.loc-panel{
+  background: var(--surface-raised);
+  border:1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: clamp(28px,4vw,44px);
+}
+.loc-city{
+  font-family: var(--font-display);
+  font-weight:700;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  color: var(--text);
+  margin-top:10px;
+}
+.loc-partners{
+  margin-top: clamp(22px,3vw,30px);
+  display:flex;
+  align-items:center;
+  gap: clamp(16px,2.4vw,24px);
+}
+.loc-partners img{ height: clamp(40px,5vw,56px); width:auto; }
+.loc-partners-x{
+  font-family: var(--font-display);
+  font-style:italic;
+  font-weight:500;
+  font-size:1.1rem;
+  color: var(--text-dim);
+}
+.loc-copy{
+  margin-top: clamp(20px,3vw,28px);
+  padding-top: clamp(20px,3vw,28px);
+  border-top:1px solid var(--hairline);
+}
+.loc-copy address{ font-style:normal; color:var(--text-dim); font-size:1rem; line-height:1.7; }
+.loc-copy address strong{ color:var(--text); display:block; font-family: var(--font-display); font-size:1.15rem; font-weight:600; margin-bottom:8px; }
+.loc-map{ display:inline-block; margin-top:14px; font-family: var(--font-mono); font-size:0.74rem; letter-spacing:0.06em; color: var(--eyebrow-color); text-decoration:none; border-bottom:1px solid var(--brass-dim); padding-bottom:2px; }
+.loc-map:hover{ border-color: var(--brass); }
+
+/* ---------- Cierre (CTA final, máximo contraste) ---------- */
+.final{
+  background: radial-gradient(circle at 50% 0%, var(--ink-raised), var(--ink-deep) 70%);
+  text-align:center;
+}
+.final h2{ font-size: clamp(2.1rem, 5vw, 3.4rem); }
+.final .lede{ margin: 18px auto 0; text-align:center; }
+.final-actions{
+  margin-top: 36px;
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.final .btn--brass{ padding: 18px 36px; font-size:1.02rem; }
+
+footer{
+  background: var(--ink-deep);
+  padding: 36px clamp(20px,5vw,56px) 44px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
+footer img{ height:44px; width:auto; opacity:0.9; }
+footer p{
+  color: var(--cream-dim);
+  font-family: var(--font-mono);
+  font-size:0.7rem;
+  letter-spacing:0.04em;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px){
+  .hero{ min-height:82svh; }
+  .hero-media img{ object-position: var(--hero-pos-movil, var(--hero-pos, 50% 24%)); }
+  .spec-strip{ grid-template-columns: 1fr; }
+  .spec{ border-left:none; border-top:1px solid var(--hairline); padding-left:0; }
+  .spec:first-child{ border-top:none; }
+  .days{ grid-template-columns:1fr; }
+  .curriculum-grid{ grid-template-columns:1fr; gap:36px; }
+  .cert-panel{ grid-template-columns:1fr; }
+  .cert-media{ min-height:240px; }
+  .instructor-row{ grid-template-columns: 92px 1fr; gap:20px; }
+  .instructor-photo{ width:92px; height:92px; }
+  .steps{ grid-template-columns:1fr; }
+  .step{ border-left:none; border-top:1px solid var(--hairline); padding-left:0; }
+  .step:first-child{ border-top:none; }
+  .price-panel{ grid-template-columns:1fr; }
+  .price-list{ border-left:none; padding-left:0; border-top:1px solid rgba(74,59,34,0.22); padding-top:18px; }
+  .price-badge{ position:static; max-width:none; justify-self:start; margin-bottom:-6px; }
+}
+
+@media (max-width: 480px){
+  .nav .btn--ghost span.full{ display:none; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .btn, .carousel-dot{ transition:none; }
+}
+
+</style>
+<link rel="stylesheet" href="motion.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="wordmark" href="#top"><img src="logo-cafe-de-ley.png" alt="Café de Ley" fetchpriority="high"></a>
+    <a class="btn btn--brass" href="https://wa.me/529841070040?text=Quiero%20reservar%20mi%20lugar%20para%20el%20curso%20de%20Barismo%20B%C3%A1sico%20en%20M%C3%A9rida" target="_blank" rel="noopener">Apartar mi lugar</a>
+  </div>
+</header>
+<main id="top">
+  <section class="hero" style="--hero-pos:50% 50%; --hero-pos-movil:65% 47%;">
+    <div class="hero-media"><img src="hero-calibracion-molino-merida-nov26.jpg" alt="Instructor de Café de Ley acompaña a una alumna en la calibración del molino" fetchpriority="high"></div>
+    <div class="hero-content">
+      <div class="wrap">
+        <p class="eyebrow">Café de Ley en Amétodo · Mérida</p>
+        <h1>Curso de<br><em>Barismo Básico</em></h1>
+        <p class="hero-sub">Del grano a la barra: aprende a calibrar el molino, extraer espresso y preparar bebidas con práctica guiada. Dos días en Mérida con un grupo pequeño e instructores certificados por la <strong>Specialty Coffee Association (SCA)</strong>.</p>
+        <p class="hero-cta-note">Cupo máximo 10 personas</p>
+      </div>
+    </div>
+  </section>
+  <section data-tone="light">
+    <p class="eyebrow intro-eyebrow">Vive esta experiencia</p>
+    <div class="carousel">
+      <img class="carousel-item" src="instructores-en-un-ejercicio-practico-de-barismo.jpg" alt="Instructores en un ejercicio práctico de barismo" loading="lazy">
+      <img class="carousel-item" src="preparacion-individual-estudio.jpg" alt="Preparación individual en el estudio de Café de Ley" loading="lazy">
+      <img class="carousel-item" src="cata-grupal-de-cafe.jpg" alt="Cata grupal de café" loading="lazy">
+      <img class="carousel-item" src="alumna-practicando-en-la-maquina-de-espresso.jpg" alt="Alumna practicando en la máquina de espresso" loading="lazy">
+      <img class="carousel-item" src="vertido-de-leche-para-latte-art-2.jpg" alt="Vertido de leche para latte art" loading="lazy">
+      <img class="carousel-item" src="dos-alumnos-trabajando-juntos-en-la-maquina.jpg" alt="Dos alumnos trabajando juntos en la máquina" loading="lazy">
+      <img class="carousel-item" src="tazas-de-cafe-con-latte-art-terminado-2.jpg" alt="Tazas de café con latte art terminado" loading="lazy">
+      <img class="carousel-item" src="detalle-de-shot-de-espresso-y-portafiltro.jpg" alt="Detalle de shot de espresso y portafiltro" loading="lazy">
+    </div>
+    <div class="carousel-dots" role="tablist" aria-label="Selector de imágenes del carrusel">
+      <button class="carousel-dot is-active" aria-label="Ir a la imagen 1"></button>
+      <button class="carousel-dot" aria-label="Ir a la imagen 2"></button>
+      <button class="carousel-dot" aria-label="Ir a la imagen 3"></button>
+      <button class="carousel-dot" aria-label="Ir a la imagen 4"></button>
+      <button class="carousel-dot" aria-label="Ir a la imagen 5"></button>
+      <button class="carousel-dot" aria-label="Ir a la imagen 6"></button>
+      <button class="carousel-dot" aria-label="Ir a la imagen 7"></button>
+      <button class="carousel-dot" aria-label="Ir a la imagen 8"></button>
+    </div>
+    <div class="wrap intro-specs">
+      <div class="spec-strip" style="--spec-cols:4;">
+        <div class="spec">
+          <p class="spec-label">Fechas y horario</p>
+          <p class="spec-value">14 y 15 de noviembre de 2026 · 9:00AM a 2:00PM</p>
+        </div>
+        <div class="spec">
+          <p class="spec-label">Duración</p>
+          <p class="spec-value">2 días · 10 horas de formación presencial</p>
+        </div>
+        <div class="spec">
+          <p class="spec-label">Diploma</p>
+          <p class="spec-value">Diploma de formación de Café de Ley, en español e inglés</p>
+        </div>
+        <div class="spec">
+          <p class="spec-label">Cupo</p>
+          <p class="spec-value">Máximo 10 personas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section data-tone="light">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Lo que vas a lograr</p>
+        <h2>Entiende el espresso y trabaja con más seguridad en la barra</h2>
+      </div>
+      <div class="intro-copy">
+        <p>Aprenderás a reconocer las variables que cambian una extracción, ajustar la molienda y preparar bebidas con una rutina clara de servicio. El curso combina fundamentos, demostraciones y práctica en máquina.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="motion-journey" aria-labelledby="journey-title" data-tone="dark">
+    <div class="wrap journey-intro">
+      <p class="eyebrow">Tres momentos del aprendizaje</p>
+      <h2 id="journey-title">De mirar a <em>hacerlo tú.</em></h2>
+      <p>Desliza para conocer cómo avanza la práctica de Barismo Básico.</p>
+    </div>
+    <div class="wrap journey-grid">
+      <div class="journey-steps">
+      <article class="journey-step" data-step>
+        <span class="journey-num">01 / 03</span>
+        <h3>Entiende el café</h3>
+        <p>Calidades, tostión y molienda: las decisiones que cambian lo que llega a la taza.</p>
+        <img class="journey-mobile-image" src="granos-de-cafe-tostado-con-cuchara-de-tostador.jpg" alt="Granos de café tostado en una cuchara" loading="lazy">
+      </article>
+      <article class="journey-step" data-step>
+        <span class="journey-num">02 / 03</span>
+        <h3>Ajusta el espresso</h3>
+        <p>Reconoce la máquina, calibra la molienda y practica distribución, compactación y extracción.</p>
+        <img class="journey-mobile-image" src="extraccion-espresso-merida-nov26.jpg" alt="Espresso recién extraído de la máquina hacia una taza" loading="lazy">
+      </article>
+      <article class="journey-step" data-step>
+        <span class="journey-num">03 / 03</span>
+        <h3>Trabaja la barra</h3>
+        <p>Prepara bebidas, practica el servicio, la limpieza del equipo y la texturización de leche.</p>
+        <img class="journey-mobile-image" src="vertido-de-leche-para-latte-art-2.jpg" alt="Vertido de leche en una taza de café" loading="lazy">
+      </article>
+      </div>
+      <div class="journey-visual" aria-hidden="true">
+        <div class="journey-photo-stack"><img src="granos-de-cafe-tostado-con-cuchara-de-tostador.jpg" alt="Granos de café tostado en una cuchara" loading="lazy" data-journey-image>
+<img src="extraccion-espresso-merida-nov26.jpg" alt="Espresso recién extraído de la máquina hacia una taza" loading="lazy" data-journey-image>
+<img src="vertido-de-leche-para-latte-art-2.jpg" alt="Vertido de leche en una taza de café" loading="lazy" data-journey-image></div>
+        <div class="journey-counter"><span data-journey-counter>01</span><span class="journey-track"><span data-journey-progress></span></span><span>03</span></div>
+      </div>
+    </div>
+  </section>
+  <div class="motion-ribbon" aria-hidden="true"><div class="motion-ribbon-track"><span>Del grano a la barra · Técnica que se practica · Café que se entiende · </span><span>Del grano a la barra · Técnica que se practica · Café que se entiende · </span></div></div>
+  <section id="temario" data-tone="light">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Contenido del entrenamiento</p>
+        <h2>De la materia prima a la barra, con técnica real</h2>
+      </div>
+      <div class="days">
+        <article class="day-card">
+          <div class="day-media"><img src="granos-de-cafe-tostado-con-cuchara-de-tostador.jpg" alt="Granos de café tostado con cuchara de tostador" loading="lazy"></div>
+          <div class="day-body">
+            <p class="day-index">Día 1 · 14 de noviembre</p>
+            <h3>Introducción al Barismo</h3>
+            <ul class="day-list">
+              <li>Qué es el café, calidades y defectos</li>
+              <li>Tipos de café y tostión</li>
+              <li>Tipos de molienda y su influencia en la extracción</li>
+              <li><strong>Cultura del barismo</strong> en Colombia y México</li>
+              <li>Qué necesitas saber para iniciar profesionalmente en este oficio</li>
+              <li>Reconocimiento completo de la máquina de espresso y sus componentes</li>
+              <li>Calibración de molienda y granulometría del café</li>
+              <li>Distribución, compactación y consistencia del espresso</li>
+              <li><strong>Preparación del espresso perfecto</strong>, aplicando técnicas internacionales</li>
+            </ul>
+          </div>
+        </article>
+        <article class="day-card">
+          <div class="day-media"><img src="espresso-recien-extraido-horizontal.jpg" alt="Espresso recién extraído en el estudio de Café de Ley" loading="lazy"></div>
+          <div class="day-body">
+            <p class="day-index">Día 2 · 15 de noviembre</p>
+            <h3>Espresso y Técnica Profesional</h3>
+            <ul class="day-list">
+              <li>Entrenamiento práctico en máquina</li>
+              <li>Bebidas derivadas del espresso sin leche: <strong>espresso, ristretto, lungo, americano, long black, doble ristretto</strong> y más</li>
+              <li>Presentación y servicio de bebidas</li>
+              <li>Limpieza profesional de equipos antes, durante y después del servicio</li>
+              <li>Cremado de leche y base para cappuccino</li>
+              <li>Texturización de leche y práctica de vertidos</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section id="certificacion" data-tone="dark">
+    <div class="wrap">
+      <div class="cert-panel">
+        <div class="cert-media"><img src="egresados-diplomas-merida.jpg" alt="Grupo de egresados del curso de Café de Ley mostrando sus diplomas" loading="lazy"></div>
+        <div class="cert-copy">
+          <h2>Aprendes con instructores certificados por la Specialty Coffee Association</h2>
+          <p>Nuestro equipo está certificado por la <strong>Specialty Coffee Association (SCA)</strong>, la asociación que define los estándares internacionales de evaluación y calidad del café. Te enseñan con esa misma rigurosidad, del origen a la taza.</p>
+          <p>Al terminar el curso recibes un <strong>diploma de formación de Café de Ley, en inglés y español</strong>.</p>
+          <div class="cert-tags"><span class="cert-tag">Bilingüe · ES / EN</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="capacitadores" data-tone="dark">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Capacitadores</p>
+        <h2>Q Graders certificados por la SCA</h2>
+      </div>
+      <div class="instructors">
+        <div class="instructor-row">
+          <div class="instructor-photo"><img src="miguel-navarro.jpg" alt="Miguel Oswaldo Navarro Morón" loading="lazy"></div>
+          <div class="instructor-card">
+            <h3>Miguel Oswaldo Navarro Morón</h3>
+            <p class="instructor-role">CEO Barista · Cofundador de Café de Ley<br>Q Grader certificado · Abogado · Estratega cultural del café</p>
+            <p class="bio">Líder del café de especialidad que combina formación profesional, certificación internacional y visión estratégica. Certificado por la Specialty Coffee Association (SCA), entiende el café como una plataforma cultural centrada en comunidad, experiencias de marca y redes internacionales.</p>
+          </div>
+        </div>
+        <div class="instructor-row">
+          <div class="instructor-photo"><img src="efrain-medina.jpg" alt="Efraín Medina Hernández" loading="lazy"></div>
+          <div class="instructor-card">
+            <h3>Efraín Medina Hernández</h3>
+            <p class="instructor-role">CEO Barista · Cofundador de Café de Ley<br>Q Grader certificado · Economista · Educador del café</p>
+            <p class="bio">Economista colombiano que dio el salto del mundo financiero al café de especialidad. Q Grader certificado por la SCA y formador certificado en México dentro del programa Conocer, lidera cursos y experiencias sensoriales en Café de Ley.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="inversion" data-tone="light">
+    <div class="wrap">
+      <div class="price-panel">
+        <div class="price-main">
+          <p class="eyebrow">Inversión</p>
+          <div class="price-figure">$3,200<small>MXN</small></div>
+          <p class="price-discount">Aparta tu lugar con un anticipo de <strong>$1,000 MXN</strong>. El resto de tu inversión (<strong>$2,200 MXN</strong>) se paga presencialmente el primer día de curso.</p>
+        </div>
+        <ul class="price-list">
+          <li><strong>Dos días de práctica</strong>en grupo de máximo 10 personas</li>
+          <li><strong>Material del curso</strong>compartido en el grupo de WhatsApp</li>
+          <li><strong>Diploma bilingüe</strong>de formación de Café de Ley, ES / EN</li>
+          <li><strong>Acompañamiento</strong>de instructores certificados por la SCA</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section id="inscripcion" data-tone="light">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Inscripción y acceso</p>
+        <h2>Lo que pasa en cuanto reservas</h2>
+      </div>
+      <div class="steps-banner">
+        <img src="grupo-alumnos-clase-practica-2.jpg" alt="Grupo pequeño de alumnos en clase práctica de Café de Ley" loading="lazy">
+        <p class="steps-banner-caption">Práctica guiada · máximo 10 personas</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <p class="step-num">01</p>
+          <h3>Apartas tu lugar</h3>
+          <p>Envíanos el comprobante de tu depósito junto con tu nombre completo, y quedas registrado en nuestro sistema.</p>
+        </div>
+        <div class="step">
+          <p class="step-num">02</p>
+          <h3>Entras al grupo</h3>
+          <p>Un día antes del curso te agregamos a un grupo de WhatsApp exclusivo, donde compartimos toda la información y los entregables del curso.</p>
+        </div>
+        <div class="step">
+          <p class="step-num">03</p>
+          <h3>Vives el curso</h3>
+          <p>Te esperamos el 14 y 15 de noviembre, de 9:00AM a 2:00PM, para practicar extracción, bebidas de espresso, servicio y texturización de leche.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="ubicacion" data-tone="dark">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Ubicación</p>
+      </div>
+      <div class="loc-panel">
+        <p class="loc-city">Mérida, Yucatán</p>
+        <div class="loc-partners">
+          <img src="logo-cafe-de-ley-alt.png" alt="Café de Ley" loading="lazy">
+          <span class="loc-partners-x">×</span>
+          <img src="logo-ametodo.png" alt="Amétodo" loading="lazy">
+        </div>
+        <div class="loc-copy">
+          <address>
+            <strong>Amétodo</strong>
+            Calle 26 – 284, Miguel Alemán<br>
+            14 y 15 de noviembre · 9:00AM a 2:00PM
+          </address>
+          <a class="loc-map" href="https://maps.app.goo.gl/dTWwwN1uHWVvUGQbA" target="_blank" rel="noopener">Cómo llegar →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="final" id="reservar" data-tone="dark">
+    <div class="wrap">
+      <p class="eyebrow">Te esperamos</p>
+      <h2>Vive el café desde el origen hasta la taza</h2>
+      <p class="lede">Desarrolla tus habilidades con estándares internacionales y forma parte de la comunidad que impulsa <strong>la excelencia del café en México</strong>.</p>
+      <div class="final-actions">
+        <a class="btn btn--brass" href="https://wa.me/529841070040?text=Quiero%20reservar%20mi%20lugar%20para%20el%20curso%20de%20Barismo%20B%C3%A1sico%20en%20M%C3%A9rida" target="_blank" rel="noopener">Apartar mi lugar</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img src="logo-cafe-de-ley.png" alt="Café de Ley" loading="lazy">
+  <p>LAB &amp; ESTUDIO DE CAFÉ · MÉRIDA, MX</p>
+</footer>
+
+<script>
+(function(){
+  var track = document.querySelector('.carousel');
+  var dotsWrap = document.querySelector('.carousel-dots');
+  if(!track || !dotsWrap) return;
+  var items = Array.prototype.slice.call(track.querySelectorAll('.carousel-item'));
+  var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.carousel-dot'));
+  function setActive(idx){ dots.forEach(function(d, i){ d.classList.toggle('is-active', i === idx); }); }
+  dots.forEach(function(dot, i){
+    dot.addEventListener('click', function(){
+      track.scrollTo({ left: items[i].offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft), behavior:'smooth' });
+    });
+  });
+  if('IntersectionObserver' in window){
+    var ratios = new Array(items.length).fill(0);
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var idx = items.indexOf(entry.target);
+        if(idx !== -1) ratios[idx] = entry.isIntersecting ? entry.intersectionRatio : 0;
+      });
+      var max = Math.max.apply(null, ratios);
+      if(max > 0) setActive(ratios.indexOf(max));
+    }, { root: track, threshold: [0, 0.25, 0.5, 0.6, 0.75, 1] });
+    items.forEach(function(item){ observer.observe(item); });
+  }
+})();
+</script>
+<script src="motion.js" defer></script>
+</body>
+</html>
